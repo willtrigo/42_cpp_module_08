@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.tpp                                       :+:      :+:    :+:   */
+/*   ContainerLoaderConstructor.cpp                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 18:33:12 by dande-je          #+#    #+#             */
-/*   Updated: 2025/10/20 11:14:08 by dande-je         ###   ########.fr       */
+/*   Created: 2025/10/20 10:19:59 by dande-je          #+#    #+#             */
+/*   Updated: 2025/10/20 10:28:41 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <algorithm>
+#include "infrastructure/seeds/ContainerLoader.hpp"
 
-template <typename T>
-typename T::iterator EasyFind<T>::easyfind(T& container, int value) {
-  typename T::iterator it =
-      std::find(container.begin(), container.end(), value);
+#include <stdexcept>
 
-  if (it == container.end()) {
-    throw ValueNotFoundException();
-  }
+ContainerLoader::ContainerLoader(const ContainerLoader& /*unused*/) {}
 
-  return it;
+ContainerLoader::~ContainerLoader() {}
+
+ContainerLoader& ContainerLoader::operator=(const ContainerLoader& /*unused*/) {
+  throw std::runtime_error("ContainerLoader assignment is not allowed");
 }

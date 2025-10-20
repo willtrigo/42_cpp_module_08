@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.tpp                                       :+:      :+:    :+:   */
+/*   easyfindConstructor.tpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 18:33:12 by dande-je          #+#    #+#             */
-/*   Updated: 2025/10/20 11:14:08 by dande-je         ###   ########.fr       */
+/*   Created: 2025/10/20 09:27:31 by dande-je          #+#    #+#             */
+/*   Updated: 2025/10/20 11:22:28 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <algorithm>
+#include <stdexcept>
 
 template <typename T>
-typename T::iterator EasyFind<T>::easyfind(T& container, int value) {
-  typename T::iterator it =
-      std::find(container.begin(), container.end(), value);
+EasyFind<T>::EasyFind() {}
 
-  if (it == container.end()) {
-    throw ValueNotFoundException();
-  }
+template <typename T>
+EasyFind<T>::EasyFind(const EasyFind&) {}
 
-  return it;
+template <typename T>
+EasyFind<T>::~EasyFind() {}
+
+template <typename T>
+EasyFind<T>& EasyFind<T>::operator=(const EasyFind&) {
+  throw std::runtime_error("EasyFind assignment is not allowed");
 }

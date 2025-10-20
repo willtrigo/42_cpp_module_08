@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 18:33:04 by dande-je          #+#    #+#             */
-/*   Updated: 2025/10/16 19:20:02 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/10/20 11:22:13 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ class EasyFind {
   ~EasyFind();
 
   typename T::iterator easyfind(T& container, int value);
-  typename T::const_iterator easyfind(const T& container, int value) const;
 
  private:
-  EasyFind(const EasyFind&);
+  EasyFind(const EasyFind<T>& /*unused*/);
 
-  EasyFind& operator=(const EasyFind&);
+  EasyFind<T>& operator=(const EasyFind<T>& /*unused*/);
 
   class ValueNotFoundException : public std::exception {
    public:
@@ -36,5 +35,7 @@ class EasyFind {
 };
 
 #include "domain/services/easyfind.tpp"
+#include "domain/services/easyfindConstructor.tpp"
+#include "domain/services/exception/easyfindException.tpp"
 
 #endif  // EASYFIND_HPP

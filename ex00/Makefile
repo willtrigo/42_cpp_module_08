@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/16 18:09:17 by dande-je          #+#    #+#              #
-#    Updated: 2025/10/16 18:21:56 by dande-je         ###   ########.fr        #
+#    Updated: 2025/10/20 10:36:06 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS_SERVICES_DIR               := $(SRCS_MODELS_DIR)services/
 
 SRCS_INFRASTRUCTURE_DIR         := $(SRCS_DIR)infrastructure/
 SRCS_IO_DIR                     := $(SRCS_INFRASTRUCTURE_DIR)io/
+SRCS_SEEDS_DIR                  := $(SRCS_INFRASTRUCTURE_DIR)seeds/
 
 SRCS_PRESENTATION_DIR           := $(SRCS_DIR)presentation/
 SRCS_CLI_DIR                    := $(SRCS_PRESENTATION_DIR)cli/
@@ -64,6 +65,8 @@ NAME                            = $(BIN_DIR)$(NAME_OUTPUT)
 
 SRCS_FILES                      += $(addprefix $(SRCS_IO_DIR), StreamWriterConstructor.cpp \
 																	 StreamWriterUtilities.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_SEEDS_DIR), ContainerLoaderConstructor.cpp \
+																	 ContainerLoaderUtilities.cpp)
 
 SRCS_FILES                      += $(addprefix $(SRCS_CLI_DIR), CliControllerConstructor.cpp \
 																	 CliControllerUtilities.cpp \
