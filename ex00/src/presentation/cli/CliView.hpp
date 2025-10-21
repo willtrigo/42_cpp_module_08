@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 18:02:23 by dande-je          #+#    #+#             */
-/*   Updated: 2025/10/20 10:39:52 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/10/20 19:12:08 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class CliView {
   ~CliView();
 
   void displayError(const std::string& str) const;
-  void displaySeparator() const;
   void displayTestResult() const;
 
  private:
@@ -31,9 +30,14 @@ class CliView {
 
   CliView& operator=(const CliView& other);
 
+  void displaySeparator() const;
+  void displayTitle(const std::string& str) const;
+  void displayResult(const std::string& str) const;
+
   IStreamWriter& m_writer;
 
   static const int SEPARATOR_SIZE = 60;
+  static const int TITLE_DETAIL_SIZE = 5;
 };
 
 #endif  // CLI_VIEW_HPP
