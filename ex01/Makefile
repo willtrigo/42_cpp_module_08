@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 22:17:09 by dande-je          #+#    #+#              #
-#    Updated: 2025/10/28 19:02:08 by dande-je         ###   ########.fr        #
+#    Updated: 2025/10/28 22:21:00 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,17 +27,13 @@ RESET                           := \033[0m
 
 SRCS_DIR                        := src/
 
-SRCS_APPLICATION_DIR            := $(SRCS_DIR)application/
-SRCS_COMMANDS_DIR               := $(SRCS_APPLICATION_DIR)commands/
-
 SRCS_DOMAIN_DIR                 := $(SRCS_DIR)domain/
 SRCS_MODELS_DIR                 := $(SRCS_DOMAIN_DIR)models/
 SRCS_ENTITIES_DIR               := $(SRCS_MODELS_DIR)entities/
-SRCS_SERVICES_DIR               := $(SRCS_MODELS_DIR)services/
+SRCS_ENTITIES_EXCEPTION_DIR     := $(SRCS_ENTITIES_DIR)exception/
 
 SRCS_INFRASTRUCTURE_DIR         := $(SRCS_DIR)infrastructure/
 SRCS_IO_DIR                     := $(SRCS_INFRASTRUCTURE_DIR)io/
-SRCS_SEEDS_DIR                  := $(SRCS_INFRASTRUCTURE_DIR)seeds/
 
 SRCS_PRESENTATION_DIR           := $(SRCS_DIR)presentation/
 SRCS_CLI_DIR                    := $(SRCS_PRESENTATION_DIR)cli/
@@ -62,6 +58,10 @@ SLEEP                           := sleep 0.01
 
 NAME_OUTPUT                     = span
 NAME                            = $(BIN_DIR)$(NAME_OUTPUT)
+
+SRCS_FILES                      += $(addprefix $(SRCS_ENTITIES_DIR), Span.cpp \
+																	 SpanConstructor.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_ENTITIES_EXCEPTION_DIR), SpanException.cpp)
 
 SRCS_FILES                      += $(addprefix $(SRCS_IO_DIR), StreamWriterConstructor.cpp \
 																	 StreamWriterUtilities.cpp)
