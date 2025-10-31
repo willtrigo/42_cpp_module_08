@@ -6,28 +6,27 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:16:08 by dande-je          #+#    #+#             */
-/*   Updated: 2025/10/28 22:23:08 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/10/30 22:58:36 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "domain/models/entities/Span.hpp"
+
 #include <algorithm>
 #include <limits>
 
 void Span::addNumber(int number) {
   if (this->m_numbers.size() >= this->m_maxSize) {
-    throw SpanException("Span is full: cannot add  more numbers");
+    throw SpanException("Span is full: cannot add more numbers");
   }
   this->m_numbers.push_back(number);
 }
 
-int Span::shortestSpan() const {
-  return calculateSpan(true);
-}
+int Span::shortestSpan() const { return calculateSpan(true); }
 
-int Span::longestSpan() const {
-  return calculateSpan(false);
-}
+int Span::longestSpan() const { return calculateSpan(false); }
+
+unsigned int Span::size() const { return this->m_numbers.size(); }
 
 int Span::calculateSpan(bool shortest) const {
   if (this->m_numbers.size() < MIN_NUMBERS_REQUIRED) {

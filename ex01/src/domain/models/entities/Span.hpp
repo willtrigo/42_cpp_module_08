@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 20:47:47 by dande-je          #+#    #+#             */
-/*   Updated: 2025/10/28 22:01:14 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/10/30 22:58:32 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,19 @@ class Span {
   Span& operator=(const Span& other);
 
   void addNumber(int number);
+  template <typename T>
+  void addNumbers(T begin, T end) {
+    for (T it = begin; it != end; ++it) {
+      if (this->m_numbers.size() >= this->m_maxSize) {
+        throw SpanException("Span is full: cannot add  more numbers");
+      }
+      this->m_numbers.push_back(*it);
+    }
+  }
 
   int shortestSpan() const;
   int longestSpan() const;
+  unsigned int size() const;
 
   class SpanException : public std::exception {
    public:

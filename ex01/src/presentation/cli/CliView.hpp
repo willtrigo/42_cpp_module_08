@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 18:47:42 by dande-je          #+#    #+#             */
-/*   Updated: 2025/10/28 19:28:42 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/10/30 22:58:12 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class CliView {
 
   void displayError(const std::string& str) const;
   void displayMandatoryTest() const;
+  void displayLargeScaleTest() const;
+  void displayExceptionTest() const;
 
  private:
   CliView(const CliView& other);
@@ -37,6 +39,8 @@ class CliView {
 
   static const int SEPARATOR_LENGTH = 60;
   static const int TITLE_BORDER_LENGTH = 5;
+  static const int LARGER_SCALE_LENGTH = 10000;
+  static const int CONST_MULTIPLIER = 9;
 };
 
 #endif  // CLI_VIEW_HPP
